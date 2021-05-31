@@ -1,4 +1,5 @@
-# [TypeScript30Days](https://ithelp.ithome.com.tw/users/20120614/ironman/2685?sc=iThelpFB)
+# [TypeScript50Days](https://ithelp.ithome.com.tw/users/20120614/ironman/2685?sc=iThelpFB)
+[source code](https://github.com/Alexius-Huang/Iron-Man-Competition)
 
 ## 安裝 TypeScript 
 
