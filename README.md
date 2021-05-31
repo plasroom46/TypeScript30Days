@@ -14,3 +14,14 @@ tsc --init
 ```cmd=
 tsc
 ```
+將 tsconfig.json 檔案裡面的 strictNullCheck 選項改成 true
+```typescript=
+/* tsconfig.json */
+{
+  "compilerOptions": {
+    /*  ...  */
+    "strictNullChecks": true,
+    /* ... */
+  }
+}
+```
