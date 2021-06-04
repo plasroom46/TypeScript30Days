@@ -36,4 +36,10 @@ export default class Character {
         // 第二個參數則是被攻擊者，所以是 target
         this.attackRef.attack(this, target);
     }
+
+    
+  // 對攻擊的策略進行更換
+  public switchAttackStrategy(type: Attack) {
+    this.attackRef = type;
+  }
 }

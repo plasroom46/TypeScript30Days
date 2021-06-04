@@ -1,3 +1,4 @@
+import StabAttack from './abilities/StabAttack';
 import Swordsman from './characters/Swordsman';
 import Warlock from './characters/Warlock';
 
@@ -15,8 +16,18 @@ const warlock=new Warlock('Martin');
 // swordsman.introduce();
 // warlock.introduce();
 
-console.log("Swordsman attacking the warlock: ");
+
+// console.log("Swordsman attacking the warlock: ");
+// swordsman.attack(warlock);
+
+// console.log("Warlock attacking the swordsman: ");
+// warlock.attack(swordsman);
+
+console.log("Using MeleeAttack: ")
 swordsman.attack(warlock);
 
-console.log("Warlock attacking the swordsman: ");
-warlock.attack(swordsman);
+// Switch to StabAttack
+swordsman.switchAttackStrategy(new StabAttack());
+
+console.log("Using StabAttack: ")
+swordsman.attack(warlock);
