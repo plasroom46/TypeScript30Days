@@ -3,6 +3,7 @@ import Warlock from './characters/Warlock';
 
 import BasicSword from './weapons/BasicSword';
 import StabAttack from './abilities/StabAttack';
+import BasicWand from './weapons/BasicWand';
 
 const swordUsingStab = new BasicSword();
 swordUsingStab.switchAttackStrategy(new StabAttack());
