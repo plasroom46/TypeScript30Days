@@ -94,8 +94,8 @@ class TrainTicket extends TicketSystem {
             departureTime,
         );
     }
-
-    private stops: string[] = [
+    // 每次產生都一樣，可以使用 static 使資料一致，不會一值產生同樣內容
+    private static stops: string[] = [
         'Pingtung',
         'Kaohsiung',
         'Tainan',
@@ -103,8 +103,8 @@ class TrainTicket extends TicketSystem {
         'Hsinchu',
         'Taipei',
     ];
-
-    private stationsDetail: TrainStation[] = [
+    // 每次產生都一樣，可以使用 static 使資料一致，不會一值產生同樣內容
+    private static stationsDetail: TrainStation[] = [
         { name: 'Pingtung', nextStop: 'Kaohsiung', duration: [2, 30, 0] },
         { name: 'Kaohsiung', nextStop: 'Tainan', duration: [1, 45, 30] },
         { name: 'Tainan', nextStop: 'Taichung', duration: [3, 20, 0] },
@@ -113,8 +113,8 @@ class TrainTicket extends TicketSystem {
     ];
 
     private isStopExist(stop: string): boolean {
-        for (let i = 0; i < this.stops.length; i += 1) {
-            const existedStop = this.stops[i];
+        for (let i = 0; i < TrainTicket.stops.length; i += 1) {
+            const existedStop = TrainTicket.stops[i];
             if (existedStop === stop) return true;
         }
 
@@ -134,8 +134,8 @@ class TrainTicket extends TicketSystem {
             let stopFound = false;
 
             /* 1. 開始進行站點間的運算 */
-            for (let i = 0; i < this.stationsDetail.length; i += 1) {
-                const detail = this.stationsDetail[i];
+            for (let i = 0; i < TrainTicket.stationsDetail.length; i += 1) {
+                const detail = TrainTicket.stationsDetail[i];
 
                 // 啟程站還未找到但是名稱對應到時開始累計交通時間
                 if (!stopFound && detail.name === startingPoint) {
