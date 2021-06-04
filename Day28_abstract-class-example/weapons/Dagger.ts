@@ -1,13 +1,13 @@
 // weapons/Dagger.ts
-import Weapon from './Weapon';
-import StabAttack from '../abilities/StabAttack';
+import Weapon from "./Weapon";
+import Role from "../characters/Role";
+import StabAttack from "../abilities/StabAttack";
 
-export default class Dagger implements Weapon {
+export default class Dagger extends Weapon {
   public readonly name = 'Dagger';
 
-  // 匕首可以進行刺擊的動作
-  public attackStrategy = new StabAttack();
+  public availableRoles: Role[] = [];
 
-  // 任何職業都可以進行刺級，在此留為空陣列
-  public availableRoles = [];
+  // 為連結 Attack 策略的參考點
+  public attackStrategy = new StabAttack();
 }

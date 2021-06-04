@@ -1,16 +1,15 @@
 // weapons/BasicWand.ts
-import Weapon from './Weapon';
-import MagicAttack from '../abilities/MeleeAttack';
-import Role from '../characters/Role';
+import Weapon from "./Weapon";
+import Role from "../characters/Role";
+import MagicAttack from "../abilities/MagicAttack";
 
-export default class BasicWand implements Weapon {
+export default class BasicWand extends Weapon {
   public readonly name = 'Basic Wand';
 
-  // 基本的劍只能簡單地揮擊
-  public attackStrategy = new MagicAttack();
-
-  // 只能被 Warlock 使用
   public availableRoles = [
     Role.Warlock
   ];
+
+  // 為連結 Attack 策略的參考點
+  public attackStrategy = new MagicAttack();
 }
