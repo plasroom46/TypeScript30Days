@@ -1,16 +1,19 @@
 // characters/Swordsman.ts
 import Role from './Role';
 import Character from './Character';
-import BasicSword from '../weapons/BasicSword';
+import SwordsmanEquipmentFactory from '../equipments/SwordsmanEquipmentFactory';
 
 export default class Swordsman extends Character {
   constructor(name: string) {
+    let SEF = new SwordsmanEquipmentFactory();
+
     super(
       name,
       Role.Swordsman,
 
-      // 選擇初始化的武器！
-      new BasicSword()
+      // 由工廠幫我們製作武器跟防具
+      SEF.createWeapon(),
+      SEF.createArmour(),
     );
   }
 }

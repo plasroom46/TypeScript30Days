@@ -3,9 +3,13 @@ import Attack from "../abilities/Attack";
 import Character from "../characters/Character";
 import Role from "../characters/Role";
 import MeleeAttack from "../abilities/MeleeAttack";
+import Equipment from "../equipments/Equipment";
+import Equipments from "../equipments/Equipments";
 
 // 我們將原本是介面的 Weapon 晉升為抽象類別後，使用 abstract class
-export default abstract class Weapon {
+export default abstract class Weapon implements Equipment{
+  public type = Equipments.Weapon;
+  
   // 武器的名稱～
   // 由於被註記為 abstract，子類別強制要實踐這個成員
   abstract name: string;
