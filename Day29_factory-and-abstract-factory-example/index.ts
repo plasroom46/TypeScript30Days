@@ -1,27 +1,29 @@
 import Swordsman from './characters/Swordsman';
 import Warlock from './characters/Warlock';
 
-import BasicSword from './weapons/BasicSword';
-import StabAttack from './abilities/StabAttack';
+// 武器的載入根本不需要了！
+// import BasicSword from './weapons/BasicSword';
+// import BasicWand from './weapons/BasicWand';
+// import Dagger from './weapons/Dagger';
 
-const swordUsingStab = new BasicSword();
-swordUsingStab.switchAttackStrategy(new StabAttack());
+// 只需要載入工廠以及武器列表
+import Weapons from './weapons/Weapons';
+import WeaponFactory from './weapons/WeaponFactory';
 
-const swordsman = new Swordsman('Maxwell');
-const warlock = new Warlock('Martin');
+let swordsman = new Swordsman('Maxwell');
+let warlock = new Warlock('Martin');
 
-// 使用初始化時的 BasicSword，其中 BasicSword 綁定的是 MeleeAttack
+// 建立武器的工廠
+const weaponFactory = new WeaponFactory();
+
+// 使用 Swordsman 預設的武器 BasicSword 進行攻擊
 console.log('Using BasicSword - MeleeAttack:');
 swordsman.attack(warlock);
 
-// 改變武器，使用綁定為 StabAttack 模式的 BasicSword
-console.log('Using Dagger - StabAttack');
-swordsman.equip(swordUsingStab);
-swordsman.attack(warlock);
+// 建立 Dagger 並更換武器
+const dagger = weaponFactory.createWeapon(Weapons.Dagger);
+swordsman.equip(dagger);
 
-// // 切換成 BasicWand 會丟出例外，因為 Swordsman 不能使用
-// try {
-//   swordsman.equip(new BasicWand());
-// } catch (err) {
-//   console.log(err);
-// }
+// 使用 Dagger 進行攻擊
+console.log('Using Dagger - StabAttack:');
+swordsman.attack(warlock);
